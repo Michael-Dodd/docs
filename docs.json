@@ -1,0 +1,214 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "maple",
+  "name": "Starter Kit",
+  "colors": {
+    "primary": "#36f2e2",
+    "light": "#bffefa",
+    "dark": "#155d57"
+  },
+  "favicon": "/favicon.svg",
+  "styling": {
+    "eyebrows": "breadcrumbs",
+    "codeblocks": "dark"
+  },
+  "banner": {
+    "content": "Check out this cool new thing...",
+    "dismissible": true
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Docs by product",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              {
+                "group": "Loqate basics",
+                "pages": [
+                  "loqate-basics/getting-started",
+                  "loqate-basics/ways-to-integrate",
+                  "loqate-basics/creating-api-keys",
+                  "loqate-basics/list-of-endpoints",
+                  "loqate-basics/api-security",
+                  "loqate-basics/monitoring-account-usage"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Our Products",
+            "pages": [
+              "our-services/capture",
+              "our-services/verify",
+              "our-services/store-finder",
+              "our-services/phone",
+              "our-services/email",
+              {
+                "group": "Bank Validation",
+                "icon": "building-columns",
+                "pages": ["our-services/bank_validation/bank-landing",
+                {
+                  "group": "Setup guides",
+                  "pages": [
+                    "our-services/bank_validation/setup/setup"
+                  ]
+                },
+                "our-services/bank_validation/API/bank-validation-api-landing"
+              ]
+              },
+              "our-services/geocoding"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/all-integrations",
+              "integrations/adobe-commerce",
+              "integrations/bigcommerce",
+              "integrations/commercetools",
+              "integrations/microsoft-dynamics-365",
+              "integrations/shopify-plus",
+              "integrations/shopware-6"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "APIs",
+        "groups": [
+          {
+            "group": "API Documentation",
+            "pages": [
+              "api-reference/introduction",
+              "api-reference/common-errors"
+            ]
+          },
+          {
+            "group": "Products",
+            "pages": [
+              "api-reference/all-apis",
+              {
+                "group": "Address Capture",
+                "icon": "keyboard",
+                "pages": [
+                  "api-reference/Capture/interactive-find-v1-1",
+                  "api-reference/Capture/interactive-retrieve-v1-2",
+                  "api-reference/Capture/interactive-geolocation-v1"
+                ]
+              },
+              {
+                "group": "Address Verify",
+                "icon": "database",
+                "pages": [
+                  "api-reference/address-verify/international-batch-cleanse-v1"
+                ]
+              },
+              {
+                "group": "Store Finder",
+                "icon": "map-location",
+                "pages": [
+                  "api-reference/store-finder/location-management-create-list",
+                  "api-reference/store-finder/location-management-delete-list-or-point",
+                  "api-reference/store-finder/location-management-update-list-or-point",
+                  "api-reference/store-finder/location-management-get-list",
+                  "api-reference/store-finder/geocoding-typeahead",
+                  "api-reference/store-finder/global-geocoding",
+                  "api-reference/store-finder/global-distance-finder",
+                  "api-reference/store-finder/mapping"
+                ]
+              },
+              {
+                "group": "Phone Validation",
+                "icon": "phone",
+                "pages": [
+                  "api-reference/phone-validation/interactive-validate-v2-2"
+                ]
+              },
+              {
+                "group": "Email Validation",
+                "icon": "envelope-open-text",
+                "pages": [
+                  "api-reference/email-validation/interactive-validate-v2",
+                  "api-reference/email-validation/batch-validate-v1.2",
+                  "api-reference/email-validation/bulk-email-validation"
+                ]
+              },
+              {
+                "group": "Bank Validation",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/bank-validation/bank-validation-api-landing",
+                  "api-reference/bank-validation/interactive-validate-v2",
+                  "api-reference/bank-validation/batch-validate-v1",
+                  "api-reference/bank-validation/international-interactive-validate-v1",
+                  "api-reference/bank-validation/interactive-retrievebysortcode-v1"
+                ]
+              },
+              {
+                "group": "Geocode",
+                "icon": "location-crosshairs",
+                "pages": [
+                  "api-reference/geocode/distances-and-directions/interactive-directions-v2",
+                  "api-reference/geocode/distances-and-directions/interactive-distance-v1",
+                  "api-reference/geocode/international-geocode-v1-1",
+                  "api-reference/geocode/international-positiontocountry-v1",
+                  "api-reference/geocode/international-retrievenearestplaces-v1",
+                  "api-reference/geocode/international-reversegeocode-v2",
+                  "api-reference/geocode/uk-find-v2",
+                  "api-reference/geocode/uk-geocode-v2-1",
+                  "api-reference/geocode/uk-retrieve-v2",
+                  "api-reference/geocode/uk-retrievenearestplaces-v1-2",
+                  "api-reference/geocode/uk-reversegeocode-v1",
+                  "api-reference/geocode/governmentdata/postzon-retrievebycoordinates-v1-2",
+                  "api-reference/geocode/governmentdata/postzon-retrievebypostcode-v1-5",
+                  "api-reference/geocode/governmentdata/postzon-retrievebypostcodeorplace-v1",
+                  "api-reference/geocode/storefinder/interactive-findplacenames-v1-1",
+                  "api-reference/geocode/storefinder/interactive-retrievecoordinates-v1-1"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Release Notes",
+        "groups": [
+          {
+            "group": "Release Notes",
+            "pages": [
+              "release-notes/introduction"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {    }
+  },
+  "logo": {
+    "light": "/logo/loqate-light.svg",
+    "dark": "/logo/loqate-dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:hi@mintlify.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://dashboard.mintlify.com"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/mintlify",
+      "github": "https://github.com/mintlify",
+      "linkedin": "https://linkedin.com/company/mintlify"
+    }
+  }
+}
