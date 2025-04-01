@@ -3,7 +3,7 @@
   "theme": "maple",
   "name": "Starter Kit",
   "colors": {
-    "primary": "#36f2e2",
+    "primary": "#4D4DFF",
     "light": "#bffefa",
     "dark": "#155d57"
   },
@@ -68,10 +68,18 @@
               "integrations/all-integrations",
               "integrations/adobe-commerce",
               "integrations/bigcommerce",
-              "integrations/commercetools",
+              {
+              "group": "commercetools",
+              "pages": [
+                "integrations/commercetools",
+                "integrations/commercetools-feature-overview",
+                "integrations/commercetools-setup-guide",
+                "integrations/commercetools-studio-settings"
+              ]
+            },
               "integrations/microsoft-dynamics-365",
               "integrations/shopify-plus",
-              "integrations/shopware-6"
+              "integrations/shopware"
             ]
           }
         ]
@@ -94,16 +102,17 @@
                 "group": "Address Capture",
                 "icon": "keyboard",
                 "pages": [
-                  "api-reference/Capture/interactive-find-v1-1",
-                  "api-reference/Capture/interactive-retrieve-v1-2",
-                  "api-reference/Capture/interactive-geolocation-v1"
+                  "api-reference/address-capture/interactive-find",
+                  "api-reference/address-capture/interactive-retrieve",
+                  "api-reference/address-capture/interactive-geolocation",
+                  "api-reference/address-capture/saas-platform-find-and-retrieve"                 
                 ]
               },
               {
                 "group": "Address Verify",
                 "icon": "database",
                 "pages": [
-                  "api-reference/address-verify/international-batch-cleanse-v1"
+                  "api-reference/address-verify/international-batch-cleanse"
                 ]
               },
               {
@@ -121,19 +130,19 @@
                 ]
               },
               {
-                "group": "Phone Validation",
-                "icon": "phone",
-                "pages": [
-                  "api-reference/phone-validation/interactive-validate-v2-2"
-                ]
-              },
-              {
                 "group": "Email Validation",
                 "icon": "envelope-open-text",
                 "pages": [
-                  "api-reference/email-validation/interactive-validate-v2",
-                  "api-reference/email-validation/batch-validate-v1.2",
+                  "api-reference/email-validation/email-validation-interactive-validate",
+                  "api-reference/email-validation/email-validation-batch-validate",
                   "api-reference/email-validation/bulk-email-validation"
+                ]
+              },
+              {
+                "group": "Phone Validation",
+                "icon": "phone",
+                "pages": [
+                  "api-reference/phone-validation/phone-validation-interactive-validate"
                 ]
               },
               {
@@ -141,32 +150,32 @@
                 "icon": "building-columns",
                 "pages": [
                   "api-reference/bank-validation/bank-validation-api-landing",
-                  "api-reference/bank-validation/interactive-validate-v2",
-                  "api-reference/bank-validation/batch-validate-v1",
-                  "api-reference/bank-validation/international-interactive-validate-v1",
-                  "api-reference/bank-validation/interactive-retrievebysortcode-v1"
+                  "api-reference/bank-validation/interactive-validate",
+                  "api-reference/bank-validation/batch-validate",
+                  "api-reference/bank-validation/international-interactive-validate",
+                  "api-reference/bank-validation/interactive-retrievebysortcode"
                 ]
               },
               {
                 "group": "Geocode",
                 "icon": "location-crosshairs",
                 "pages": [
-                  "api-reference/geocode/distances-and-directions/interactive-directions-v2",
-                  "api-reference/geocode/distances-and-directions/interactive-distance-v1",
-                  "api-reference/geocode/international-geocode-v1-1",
-                  "api-reference/geocode/international-positiontocountry-v1",
-                  "api-reference/geocode/international-retrievenearestplaces-v1",
-                  "api-reference/geocode/international-reversegeocode-v2",
-                  "api-reference/geocode/uk-find-v2",
-                  "api-reference/geocode/uk-geocode-v2-1",
-                  "api-reference/geocode/uk-retrieve-v2",
-                  "api-reference/geocode/uk-retrievenearestplaces-v1-2",
-                  "api-reference/geocode/uk-reversegeocode-v1",
-                  "api-reference/geocode/governmentdata/postzon-retrievebycoordinates-v1-2",
-                  "api-reference/geocode/governmentdata/postzon-retrievebypostcode-v1-5",
-                  "api-reference/geocode/governmentdata/postzon-retrievebypostcodeorplace-v1",
-                  "api-reference/geocode/storefinder/interactive-findplacenames-v1-1",
-                  "api-reference/geocode/storefinder/interactive-retrievecoordinates-v1-1"
+                  "api-reference/geocode/distances-and-directions-interactive-directions",
+                  "api-reference/geocode/distances-and-directions-interactive-distance",
+                  "api-reference/geocode/international-geocode",
+                  "api-reference/geocode/international-positiontocountry",
+                  "api-reference/geocode/international-retrievenearestplaces",
+                  "api-reference/geocode/international-reversegeocode",
+                  "api-reference/geocode/uk-find",
+                  "api-reference/geocode/uk-geocode",
+                  "api-reference/geocode/uk-retrieve",
+                  "api-reference/geocode/uk-retrievenearestplaces",
+                  "api-reference/geocode/uk-reversegeocode",
+                  "api-reference/geocode/governmentdata-postzon-retrievebycoordinates",
+                  "api-reference/geocode/governmentdata-postzon-retrievebypostcode",
+                  "api-reference/geocode/governmentdata-postzon-retrievebypostcodeorplace",
+                  "api-reference/geocode/storefinder-interactive-findplacenames",
+                  "api-reference/geocode/storefinder-interactive-retrievecoordinates"
                 ]
               }
             ]
