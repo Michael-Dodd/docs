@@ -1,5 +1,260 @@
 ---
 title: Shopify Plus Integration Guide
-sidebarTitle: "Shopify Plus"
+sidebarTitle: "The Shopify Plus Integration Guide"
 description: "Get Loqate services running in Shopify Plus in just a few minutes"
 ---
+
+<Card title="Download from the Shopify App Store"  color="#4D4DFF" href="https://apps.shopify.com/loqate" horizontal>
+</Card>
+
+In this guide we will provide all of the information you need to get up and running using the Loqate Shopify Plus Integration. If you're looking for the full details of what the Loqate Shopify Plus Integration does and what it looks like in practice, you can find that here:
+
+<Card title="About the Loqate Shopify Plus Integration"  horizontal href="/integrations/about-the-loqate-shopify-plus-integration">
+</Card>
+
+---
+
+## Prerequisites
+Before you start installing and setting up the Loqate Shopify Plus Integration, you will need the following:
+
+- A live Shopify Plus account
+- A live Loqate account
+- A new Loqate API key (see the API keys section below for more information on this)
+ 
+### Loqate accounts
+You can use the Loqate Shopify Plus app with both the Loqate Saas platform (available to North American customers) and Classic platform. If you're in the US and you're not sure which platform you're using, see our [guide to the Loqate Saas Platform](/our-services/address-capture/the-loqate-saas-platform).
+
+It's important to note, however, that Address Verify functionality is only available via the Classic platform. You can use both Address Capture and Address Verify with a single Classic platform API key. 
+
+### API keys
+You'll need a new Loqate API key, dedicated to this service (our [Creating API Keys page](/loqate-basics/creating-api-keys) has lots of information about how to set one up, and what to consider when you're doing that). For the Loqate Saas platform you can use any key; for the Classic platform we recommend you create a generic API key, but any key will work.
+
+For information about how to ensure your Loqate integration is as secure as possible, see our [API Security page](/loqate-basics/api-security).
+
+---
+
+## Installation
+There are a few quick steps to get the Loqate Shopify Plus Integration up and running:
+
+- [Install and configure the Loqate app](#installing-and-configuring-the-loqate-app-basic-setup)
+- [Enable Address Capture, Address Verify and Email Validation](#enabling-loqate-services)
+- [Recommended - include company name](#recommended-include-company-name)
+
+As well as those key actions, there are also some additional steps that you can follow if required:
+
+- [Use without Address Capture (not recommended)](#optional-use-without-address-capture-not-recommended)
+- [Advanced Settings (optional)](#optional-advanced-settings)
+
+Follow these steps in order, and you'll get up and running quickly and easily. If you need help you can [contact support@loqate.com](support@loqate.com).
+
+### Installing and configuring the Loqate app
+The initial setup will add the Loqate app to your Shopify store, at which point Address Capture will be enabled by default. You can then also enable Address Verify and/or Email Validation.
+
+First, install [the Loqate app](https://apps.shopify.com/loqate) from the Shopify App Store (see the [Shopify app installation instructions](https://help.shopify.com/en/manual/apps/installing-apps) for more details). Once that is done:
+
+- You should automatically be taken to the Admin section for your new Loqate app
+- If not, go to [accounts.shopify.com](https://accounts.shopify.com/), select the **Your store** option, then select the **Loqate** app on the left-hand side of the screen to open it
+
+![Loqate App](/images/shopify-loqate-app.png)
+
+- Copy and paste your Loqate API key in to the API Key field on this screen, then click the **Save** button:
+
+![API Key](/images/shopify-api-key-july-24.png)
+
+With that done, you can add one or more of the Loqate services to your store using the steps below.
+
+### Enabling Loqate services
+
+<Tabs>
+  <Tab title="Enabling Address Capture">
+    With the app installed, Address Capture is automatically available. There is, however, an additional step to make sure Address Capture is added to your checkout. Here are the steps to follow:
+    
+    - In the Admin section of your Shopify Plus account, go to **Settings > Checkout**. From here you can either edit your existing checkout, or create a new draft of your checkout layou
+    - To edit your existing checkout click the **Customize** button, or to create a new draft checkout click the **Duplicate** button followed by **Customize** on the new version
+    
+    ![Duplicate Checkout](/images/shopify-duplicate-checkout.png)
+    
+    - Once you're editing your checkout, go to the Settings menu (the cog icon on the left-hand side), scroll down to the **Address autocompletion** section and select the **Loqate** option to set Loqate as your provider:
+    
+    ![Address Autocompletion](/images/shopify-address-autocompletion.png)
+    
+    - Make sure you save the changes to your checkout, then exit the editor. If you created a new checkout draft, you can click the **Publish** button to make it live
+    
+    Address Capture will now be available on your checkout. If you also want to enable Address Verify and/or Email Validation, carry on through the Address Verify and Email Validation tabs.
+
+  </Tab>
+  <Tab title="Enabling Address Verify">
+  There are a few steps required to enable Address Verify functionality to your checkout:
+  
+  First, you need to add the **Loqate-Checkout** app block to your store (see https://www.shopify.com/enterprise/blog/customize-shopify-checkout). App blocks allow you to customise the look and functionality of your checkout layout and process, and this block is required in order to use Address Verify on the Thank You page. Here's how to add this block:
+  
+  - In the Admin section of your Shopify Plus account, go to Settings > Checkout. From here you can either edit your existing checkout, or create a new draft of your checkout layout (see the Address Capture section above for more details)
+  - Next, select the Apps icon (the bottom icon) in the left-hand menu of the checkout editor, then search for 'Loqate'
+  - Select the **loqate-checkout** app, then click the plus button and select **Thank you** from the drop-down list - this adds the app block to the Thank You page
+  
+  ![Add App Block](/images/shopify-add-app-block.png)
+  
+  - With that done, make sure you save the changes to your checkout, then exit the editor. If you created a new checkout draft, you can click the **Publish** button to make it live.
+  
+  The next step is to disable the default address verification by Shopify. If this is left enabled, additional suggestions may be displayed against individual address fields, which can cause confusion for customers.
+  
+  - Still in Settings > Checkout, scroll down to the **Address collection preferences** section:
+  
+  ![Address Collection](/images/shopify-address-collection-small.png)
+  
+  - Make sure the **Validate shipping address** option is unticked, then click the Save button
+  
+  The final step is to enable Address Verify in the Loqate app's Admin page. 
+  
+  **NOTE:** Address Verify is only available if you're using a Classic platform API key. If you're using a Saas platform API key, the Address Verify section below the API key section will remain greyed out.
+  
+  If you're using a Classic platform API key, once you've entered your key into the API Key field in the Loqate app's Admin page, the Address Verify section below will become editable:
+  
+  ![Address Verify 1](/images/shopify-verify-1-december-2024.png)
+  
+  - Scroll down to the Address Verify section and select the **Enable address verification for post checkout** option
+    - NOTE: to use the post checkout option, please ensure your store is not [password protected](https://help.shopify.com/en/manual/online-store/themes/password-page)
+    - If you also want to enable Address Verify on the checkout page you can select the **Enable address verification for checkout** option too - this is not recommended, however, and this option will be removed soon
+    - Click the **Save** button, and Address Verify will now be available.
+  </Tab>
+  <Tab title="Enabling Email Validation">
+  The steps to enable Email Validation in your checkout are similar to those for Address Verify.
+  
+  First, add the **Loqate-Checkout** app block to your store - but this time it needs to be added to the **Checkout** section.
+  
+  - In the Admin section of your Shopify Plus account, go to Settings > Checkout. From here you can either edit your existing checkout, or create a new draft of your checkout layout (see the Address Capture section above for more details)
+  - Select the Apps icon (the bottom icon) in the left-hand menu of the checkout editor, then search for 'Loqate'
+  - Select the **loqate-checkout** app, then click the plus button and select **Checkout** from the drop-down list
+  
+  ![Add App Block 2](/images/shopify-add-app-block-2.png)
+  
+  Once that's done, you just need to select the **Enable email validation** option from the 'Email Validation' section on the Loqate app's Admin page:
+  
+  ![Email Validation](/images/shopify-email-validation-december-2024.png)
+  
+  Once that's selected, click the **Save** button and move on to the next section.
+  </Tab>
+</Tabs>
+
+---
+
+### Recommended - Include company name
+By default, Shopify is set to not include a **Company name** address field. As such, if an address includes a company name (for example if a customer orders a delivery to their place of work) it won't be included in the address that's populated in Shopify.
+
+We recommend setting Shopify to include Company name as an optional address field, so that it will be populated any time an address does include a company name. Here's how to change that setting:
+
+- Go to the site Settings page for your Shopify store 
+- Select the **Checkout** option from the left-hand menu
+- Scroll down to the **Customer information** section
+
+![Company Name Settings](/images/shopify-company-name-settings.png)
+
+- Set Company name to **Optional**, then click the Save button
+
+With that done, you should now see an optional Company address field in the checkout:
+
+![Company Name 1](/images/shopify-company-name-1.png)
+
+---
+
+### Optional - Use without Address Capture (not recommended)
+We recommend always using Address Capture, as this helps reduce the chances of mistakes caused by manual address entry, ensuring addresses can be trusted as correct and giving the best customer experience. It is, however, possible to use just Address Verification or just Email Validation if you don't want any kind of address autocompletion functionality. 
+
+If you want to use Address Verification and/or Email Validation on their own, follow the full installation and setup process as above, then you can manually disable Address Capture. Here's how to do that:
+
+- First, make sure that you've enabled at least one of Address Verification and/or Email Validation (see the [Basic Setup](#basic-setup) section earlier)
+- Then, go to Settings > checkout and click the **Customize** option for your checkout
+- Click on the **Settings** icon on the left-hand side, then scroll down to the **Address autocompletion** section
+
+![Address Autocompletion](/images/shopify-address-autocompletion.png)
+
+- Untick the **Use address autocompletion** option, then save the change to your Checkout configuration
+
+This will have disabled the Address Capture functionality, while leaving Address Verify and/or Email Validation running.
+
+---
+
+### Optional - Advanced Settings
+The Advanced Settings page is located in the Admin section of your Loqate app, and includes the following optional settings.
+
+<AccordionGroup>
+<Accordion title="Display a custom Loqate capture address search input on the checkout page">
+Selecting this option adds an additional 'Search for address' field onto the checkout page, which allows for containers to be used in searching for addresses. Entering a street, road or apartment building will where appropriate return a container displaying the number of addresses:
+
+![Containers 1](/images/shopify-containers-1.png)
+
+Select an option from the list to see a list of addresses within the container:
+
+![Containers 2](/images/shopify-containers-2.png)
+
+Note that with this enabled, Verify will not fire on the Thank You page when customers select addresses returned by Address Capture, unless they subsequently edit a returned address.
+</Accordion>
+<Accordion title="Force addresses to be returned in latin character sets where available">
+With this selected, Address Capture will always attempt to use any English results to set the delivery address, even with non-latin results. Note that for this setting to work, the 'Display a custom Loqate capture address search input on the checkout page' option must be **enabled**.
+
+For example, here's a Japanese address searched for using Kanji characters:
+
+![Non-Latin 1](/images/shopify-non-latin-1.png)
+
+And here's the result populated using the English version of the address:
+
+![Non-Latin 2](/images/shopify-non-latin-2.png)
+
+This is useful for when carriers have difficulty processing non-latin addresses.
+</Accordion>
+<Accordion title="Use address capture to allow customers to update their address if the shipping address cannot be verified">
+With this enabled, customers can manually amend their addresses post-checkout, if what they initially entered can't be verified. For example, if a customer hasn't entered their building number or apartment number they can go back and add it in.
+
+Under these circumstances, after an order has been confirmed the customer will be presented with a list of possible addresses to choose from:
+
+![Post Checkout Verify 1](/images/shopify-post-checkout-verify-1.png)
+
+If the customer selects one of the suggested addresses, they will then see a notification acknowledging the address they've selected and giving them the option to update their shipping address:
+
+![Post Checkout Verify 2](/images/shopify-post-checkout-verify-2.png)
+</Accordion>
+<Accordion title="Use enhanced country validation on unverified addresses">
+Sometimes it can be possible for a customer to enter an address with the wrong country, which as standard will be flagged as an unverified address. 
+
+Selecting this option enables Address Verify to be automatically called for a second time whenever an address is returned as unverified. For the second call, Address Verify will run using enhanced country verification, providing another opportunity to verify the address with the correct country. 
+
+For this to function Address Verify must be enabled on the **Thank you** page. This functionality may incur additional charges for enhanced verification.
+</Accordion>
+</AccordionGroup>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+<Accordion title="I can't see some of the Admin options described in this guide">
+The Loqate Shopify Integration requires a Shopify Plus account. If you don't use Shopify Plus, you won't see all of the necessary options and won't be able to use this integration.
+</Accordion>
+<Accordion title="The Capture autocomplete field is not showing on my checkout">
+Ensure that the API key is correct on the Admin page.
+</Accordion>
+<Accordion title="When selecting an address, the fields do not populate">
+Ensure that your API key is correct on the Admin page, and that you have sufficient credit on your Loqate account.
+</Accordion>
+<Accordion title="How do I uninstall the Loqate app?">
+If you no longer want to use the Loqate Shopify Plus integration, you can uninstall it from your Shopify Plus store.
+
+**Please note:** if you uninstall the Loqate app and then want to start using it again at a later date, you will need to go through the full installation process again.
+
+To uninstall the Loqate app, go to the Admin page of the app within your Shopify account and click on the three dots at the top-right of the screen. You will see an option to uninstall there:
+
+![Uninstall](/images/shopify-uninstall.png)
+
+When you click **Uninstall**, you'll be prompted to choose a reason for uninstalling:
+
+![Uninstall 2](/images/shopify-uninstall-2.png)
+
+Select one or more reasons, then click the **Uninstall** button. This will uninstall the app and return you to the 'Installed Apps' section of your Admin page.
+</Accordion>
+</AccordionGroup>
+
+---
+
+<Card title="Further reading" horizontal href="/integrations/about-the-loqate-shopify-plus-integration">
+If you haven't already, check out our 'About the Loqate Shopify Plus Integration' article for examples of the Loqate Shopify Plus Integration in use.
+</Card>

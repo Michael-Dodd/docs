@@ -1,0 +1,101 @@
+---
+title: Data Maintenance - Post Processing
+description: "This guide is a technical document explaining what data variables we return to our customers post processing, our data transfer mechanism and what our HealthCheck is."
+sidebarTitle: "Data Maintenance - Post Processing"
+icon: 
+---
+
+## Returned data transfer
+Data is provided to Loqate either via a managed SFTP or via the Account portal upload button (in essence a SFTP).
+
+Data is returned via a managed SFTP only.
+
+In the case where the data was submitted via the account section then a managed SFTP will be created for the return of data. To set up a managed SFTP, Loqate requires the name, email address and phone number of the individual who will be accessing the SFTP.
+
+The standard is to return the data in the same format that it was sent. For example, if the data provided to Loqate was in CSV format, then it will returned this way.
+
+## Flexibility of Returned data
+It is important that the data returned is in the format and layout that makes ingestion and action as easy as possible.
+
+Therefore, Loqate can
+
+- Return the data in the file format of your choosing (e.g. pipe-delimited)
+- Return the variables in the order you specify (e.g postcode, add1, add2, town) although as standard we return the input variables unchanged, and add additional columns to the right of the file
+- Rename the column headers as required (e.g. add1 as opposed to GBG Address 1)
+- Alter the contents (e.g. replace a Y or null value, with a yes or no)
+
+## Data Maintenance HealthCheck report
+Typically, the first output produced is the HealthCheck data quality report that will highlight the quality of the data against the industry-leading correction, suppression and enhancement files GBG possess.
+
+This report is in PDF format and can be emailed.
+
+![Screenshot]()
+
+![Screenshot]()
+
+## Variables Returned by Loqate
+Depending upon the services chosen, the output will consist of one or multiple of the below.
+
+As noted earlier, the additional columns will be provided to the right of the input fields supplied for processing. These input fields will remain untouched, thus allowing you to compare your inputs to the outputs.
+
+| Field	| Notes	| Values | 
+| :--- | :--- | :--- | 
+| GASR (Gas Reactive)	| Forwarding Address Flag	| Yes <br/>Null | 
+| NCOA (National Change of Address)	| Forwarding Address Flag	| Yes <br/>Null | 
+| GBG Address 1, 2, 3, 4, 5, 6 and Postcode	| The outputted address will be a corrected address, a standardised address, a forwarding address (if customer name & address matches GASR or NCOA) or an unchanged input address (e.g. address already correct, or address cannot be corrected) |  |  
+| PAF Status Code	| Status Code	| PREM – the address is a full premise match (so match to PAF) <br/>PCOD – postcode only matches <br/>PART – a partial match <br/>NOMA – no match possible <br/>FORN – foreign, non-UK, address | 
+| Mortality (Mortascreen)	| Deceased	| Governmental (Probate) Records confidence score=10 <br/>Funeral Data confidence score=9 <br/>Insurance Data confidence score=8 <br/>Deceased Preference Service confidence score=7 | 
+| NDR (National Deceased Register)	| Deceased	| Yes <br/>Null <br/>Date of death (Optional) | 
+| Bereavement (The Bereavement Register)	| Deceased	| Yes <br/>Null | 
+| GAS (Gas Goneaways)	| Goneaway	| Yes <br/>Null | 
+| Absolute Movers	| Goneaway	| Yes <br/>Null | 
+| Remover	| Goneaway	| Yes <br/>Null | 
+| NCOA Suppress	| Goneaway	| Yes <br/>Null | 
+| MPS Flag (Mailing Preference Service)	| Goneaway	| Yes <br/>Null | 
+| Dedupe ID	| Identification of individual, family and household duplicates (or any single or combination of variables (e.g., email address only, surname plus telephone number). If no URN is provided, then GBG creates a sequential URN, for example GBG0000001.	| e.g. GBG0000001 | 
+| Dedupe Individual Flag	| Identification of individual, family and household duplicates (or any single or combination of variables (e.g., email address only, surname plus telephone number). If no URN is provided, then GBG creates a sequential URN.	| Y | 
+| Dedupe Individual ID	| Identification of individual, family and household duplicates (or any single or combination of variables (e.g., email address only, surname plus telephone number). If no URN is provided, then GBG creates a sequential URN, for example GBG0000001.	| e.g. GBG0000001 | 
+| Dedupe Premise Flag	| Identification of individual, family and household duplicates (or any single or combination of variables (e.g., email address only, surname plus telephone number). If no URN is provided, then GBG creates a sequential URN.	 |  | 
+| GBG Landline	| Landline appended	| e.g. 01244999999 | 
+| GBG Mobile	| Mobile appended	| e.g. 07810999999 | 
+| BT OSIS TEL	| Tel appended	| e.g. 01244999999 | 
+| BT OSIS EX-D Flag	| Flag appended	| Ex-D <br/>Null | 
+| TPS Flag	| Flag appended	| Yes <br/>Null | 
+| GBG Email	| Email appended	| e.g.Madeup@email.com | 
+| Email Validation Status	| Identification of valid & invalid email addresses	| Valid <br/>Invalid <br/>Accept-all (i.e., catch-all) <br/>Unknown (looks valid but domain didn’t respond in time) | 
+| Email Validation Reason	| Identification of valid & invalid email addresses	| EMAIL ADDRESS INVALID (represents a syntax error) <br/>EMAIL DOMAIN INVALID <br/>EMAIL ACCOUNT INVALID | 
+| Email is disposable	| Identification of valid & invalid email addresses	| True <br/>False | 
+| Email is role	| Identification of valid & invalid email addresses	| True <br/>False | 
+| Landline Validation Code	| Identification of valid & invalid telephone numbers | 	0 - Software Invalidated <br/> 100 - Live Number <br/>110 - Live Does not accept incoming calls <br/>200 - Live Call barred <br/>300 - Dead Number <br/>310 - Ambiguous network response <br/>400 - Invalid Number <br/>500 - Number Changed <br/>600 – Retry <br/>610 - Retry - Unobtainable <br/>620 - Retry - Number out of order <br/>630 - Retry - Network out of order <br/>640 - Retry - Congestion <br/>650 - Retry - Equipment temporary failure <br/>700 - No longer in service <br/>730 – Look-up unavailable <br/>740 – Submitted as landline but mobile detected | 
+| Mobile Validation Code	| Identification of valid & invalid mobile telephone numbers | 0 - Software Invalidated <br/>100 - Live Number <br/>120 - Live - Mobile switched off <br/>300 - Dead Number <br/>400 - Invalid Number <br/>600 – Retry <br/>660 - Retry - Mobile Phone temporarily unavailable <br/>700 – No Longer in service <br/>730 – Look-up unavailable <br/>750 – Submitted as mobile but landline detected | 
+
+## Other Services
+
+| Service	| Description	| Decodes | 
+| :--- | :--- | :--- | 
+| UK Address cleansing	| UDPRN	| UDPRN returned (8 digits) | 
+|  | Address Quality Flag	| Y flag to indicate an address outputted differs to that supplied | 
+|  | Additional PAD variables such as PostZon, DPS etc.	| Please ask for more details | 
+| Business Data	| To be appended to client records	| Company reg number <br/>Company name <br/>Primary 2007 SIC Code. - LUSC01 <br/>Primary 2003 SIC Code. - LUSC02 <br/>Dissolved / Removed / Live. - LUDF01 <br/>Liquidation / Receivership. - LULQ01 <br/>Adverse Flag – Administration Order. “Y” if set <br/>Adverse Flag – Voluntary Agreement. “Y” if set <br/>Adverse Flag – In Administration. “Y” if set <br/>Adverse Flag – Receiver/Manager. “Y” if set <br/>Latest Annual Return Date. DD/MM/YYYY <br/>Charity Number (If applicable) <br/>Company Type / Legal Status. - LUCT01 <br/>Company Registration Number <br/>Registered Address line 1 <br/>Registered Address line 2 <br/>Registered Address line 3 <br/>Registered Address line 4 <br/>Registered Address Postcode <br/>Telephone number <br/>TPS Notification. “Y” if set <br/>Web Address <br/>Registered POBox <br/>Registered Care Of Address <br/>Reg Office Area Code <br/>Company Registration Number <br/>Previous Name <br/>Date Of Change. DD/MM/YYYY <br/>2003 SIC Codes. - LUSC02 <br/>2007 SIC Codes. - LUSC01 <br/>Company Registration Number <br/>Previous Registered Address line 1 <br/>Previous Registered Address line 2 <br/>Previous Registered Address line 3 <br/>Previous Registered Address line 4 <br/>Previous Registered Address Postcode <br/>Address change date <br/>Company Registration Number <br/>Row Rank <br/>Principle Activity <br/>Company Registration Number <br/>Address Number <br/>Trading Address 1 <br/>Trading Address 2 <br/>Trading Address 3 <br/>Trading Address 4 <br/>Trading Address Post Code <br/>Trading STD code <br/>Trading Telephone Number <br/>Trading CTPS Flag <br/>Registered Office Flag <br/>Head Office Flag <br/>Property Type <br/>Company registration number <br/>Currency <br/>Turnover <br/>Export <br/>Cost of Sales <br/>Gross Profit <br/>No of Employees | 
+| Electoral Roll match	| No description	| I – Match achieved to forename and surname <br/>K – Tolerance match achieved to forename and surname <br/>K – Match achieved to forename, surname and 2nd initial <br/>A – No match achieved but name found at address and added <br/>N – No match achieved at this premise | 
+| Profanity	| No description	| Yes <br/>Null | 
+| CTPS	| Corporate Telephone Preference Service	| Yes <br/>Null | 
+| Insolvency	| No description	| Match legend <br/>AKA <br/>Type <br/>Status <br/>Occupation <br/>Practitioner firm <br/>Practitioner address <br/>Practitioner telephone number <br/>Case number <br/>Court <br/>Court number <br/>Insolvency officer | 
+| Vulnerable properties	| No description	| Yes <br/>Null | 
+| Alerts	| Factual compliant data regarding the property and if it is withing the moving process	| Status (available for sale, available for rent, under offer, sold STC, rent agreed, undergoing conveyancing) <br/>Date <br/>Sell price <br/>Offer price <br/>Rental price <br/>Rental period (e.g. monthly) <br/>Anticipated completion date | 
+| Land registry price paid	| Post-move data	| Date of move <br/>Price paid <br/>Tenure <br/>Type of building | 
+| Property Intelligence	| Over 50 household-level variables such as type of property, current value & number of rooms	| [Property Intelligence User Guide](/data/data-sets/property-intelligence-user-guide) | 
+| Email – more granular data	| Please ask for additional fields providing more granular detail post live email validation processing	 |  | 
+| Email domain only validation	| Checks what is after the @ sign for syntax & domain name lookup	Valid <br/>Invalid | 
+| Global mobile validation	| Additional variables available for specific countries	Registered country MNC code <br/>Current network MNC code <br/>Current location | 
+| Halo	| Deceased dataset applicable for specific use case	| Yes <br/>Null <br/>Date of death | 
+
+## International Address Cleansing
+Global address cleansing and standardisation
+
+| Processing Flags	| Flag - Key | 
+| :--- | :--- | 
+| Process Code	| A – A record that has been automatically and successfully coded in a batch run <br/>U - Not successfully coded in a Batch run, and has not saved manually using Manual <br/>M - For a record that has been saved (coded or not) in an Interactive session <br/>F - For a record in which a foreign town name was detected. | 
+| Match Status	| S - Address successfully coded <br/>A - Address is ambiguous <br/>I - Insufficient match result <br/>N - Unable to identify town <br/>E - An error occurred <br/>F - A foreign town name was detected | 
+| Match Level	| O - Matched to organisation name level <br/>P - Matched to premise level <br/>S - Matched to street level <br/>T - Matched to town level <br/>N - No match | 
+| Output Status	| V – Verified <br/>C – Corrected | 

@@ -41,11 +41,58 @@
           {
             "group": "Our Products",
             "pages": [
-              "our-services/capture",
-              "our-services/verify",
-              "our-services/store-finder",
-              "our-services/phone",
-              "our-services/email",
+              {
+                "group": "Address Capture",
+                "icon": "keyboard",
+                "pages": [
+                  "our-services/address-capture/address-capture-landing",
+                  "our-services/address-capture/address-capture-sdk",
+                  "our-services/address-capture/the-loqate-saas-platform",
+                  {
+                    "group": "Premium data sets",
+                    "icon": "",
+                    "pages": [
+                      "our-services/address-capture/premium-data-sets/consuming-premium-data-sets",
+                      "our-services/address-capture/premium-data-sets/property-intelligence-data-directory",
+                      "our-services/address-capture/premium-data-sets/property-intelligence-user-guide"
+                    ]
+                  }
+              ]
+              },
+              {
+                "group": "Address Verify",
+                "icon": "database",
+                "pages": [
+                  "our-services/address-verify/address-verify-landing"
+                ]
+              },
+              {
+                "group": "Store Finder",
+                "icon": "map-location",
+                "pages": [
+                  "our-services/store-finder/store-finder-landing",
+                  "our-services/store-finder/how-does-a-store-finder-work",
+                  "our-services/store-finder/creating-and-managing-location-lists",
+                  "our-services/store-finder/how-to-implement-a-store-finder",
+                  "our-services/store-finder/setting-up-store-finder-keys",
+                  "our-services/store-finder/store-finder-api-landing"
+                ]
+              },
+              {
+                "group": "Email Validation",
+                "icon": "envelope-open-text",
+                "pages": [
+                  "our-services/email-validation/email-validation-landing",
+                  "our-services/email-validation/api-landing"
+                ]
+              },
+              {
+                "group": "Phone Validation",
+                "icon": "phone",
+                "pages": [
+                  "our-services/phone-validation/phone-validation-landing"
+                ]
+              },
               {
                 "group": "Bank Validation",
                 "icon": "building-columns",
@@ -56,10 +103,23 @@
                     "our-services/bank_validation/setup/setup"
                   ]
                 },
-                "our-services/bank_validation/API/bank-validation-api-landing"
+                "our-services/bank_validation/API/api-landing"
               ]
               },
-              "our-services/geocoding"
+              {
+                "group": "Geocoding",
+                "icon": "location-crosshairs",
+                "pages": [
+                  "our-services/geocoding/geocoding-landing"
+                ]
+              },
+              {
+                "group": "Data Maintenance",
+                "icon": "wrench",
+                "pages": [
+                  "our-services/data-maintenance/data-maintenance-post-processing"
+                ]
+              }
             ]
           },
           {
@@ -78,8 +138,34 @@
               ]
             },
               "integrations/microsoft-dynamics-365",
-              "integrations/shopify-plus",
+              {
+                "group": "Shopify Plus",
+                "pages": [
+                  "integrations/about-the-loqate-shopify-plus-integration",
+                  "integrations/shopify-plus"
+                ]
+              },
               "integrations/shopware"
+            ]
+          },
+          {
+            "group": "Data",
+            "pages": [
+              {
+                "group": "Datasets",
+                "pages": [
+                  "data/data-sets/consuming-premium-data-sets",
+                  "data/data-sets/property-intelligence-user-guide",
+                  "data/data-sets/property-intelligence-data-directory",
+                  "data/data-sets/loqate-utilities-register"
+                ]
+              },
+              {
+                "group": "Data Maintenance",
+                "pages": [
+                  "data/data-maintenance/data-maintenance-post-processing"
+                ]
+              }
             ]
           }
         ]
@@ -133,9 +219,10 @@
                 "group": "Email Validation",
                 "icon": "envelope-open-text",
                 "pages": [
-                  "api-reference/email-validation/email-validation-interactive-validate",
-                  "api-reference/email-validation/email-validation-batch-validate",
-                  "api-reference/email-validation/bulk-email-validation"
+                  "api-reference/email-validation/api-landing",
+                  "api-reference/email-validation/batch",
+                  "api-reference/email-validation/bulk",
+                  "api-reference/email-validation/individual"
                 ]
               },
               {
@@ -150,8 +237,8 @@
                 "icon": "building-columns",
                 "pages": [
                   "api-reference/bank-validation/bank-validation-api-landing",
-                  "api-reference/bank-validation/interactive-validate",
                   "api-reference/bank-validation/batch-validate",
+                  "api-reference/bank-validation/interactive-validate",
                   "api-reference/bank-validation/international-interactive-validate",
                   "api-reference/bank-validation/interactive-retrievebysortcode"
                 ]
@@ -160,22 +247,42 @@
                 "group": "Geocode",
                 "icon": "location-crosshairs",
                 "pages": [
-                  "api-reference/geocode/distances-and-directions-interactive-directions",
-                  "api-reference/geocode/distances-and-directions-interactive-distance",
-                  "api-reference/geocode/international-geocode",
-                  "api-reference/geocode/international-positiontocountry",
-                  "api-reference/geocode/international-retrievenearestplaces",
-                  "api-reference/geocode/international-reversegeocode",
-                  "api-reference/geocode/uk-find",
-                  "api-reference/geocode/uk-geocode",
-                  "api-reference/geocode/uk-retrieve",
-                  "api-reference/geocode/uk-retrievenearestplaces",
-                  "api-reference/geocode/uk-reversegeocode",
-                  "api-reference/geocode/governmentdata-postzon-retrievebycoordinates",
-                  "api-reference/geocode/governmentdata-postzon-retrievebypostcode",
-                  "api-reference/geocode/governmentdata-postzon-retrievebypostcodeorplace",
+                  {
+                    "group": "DistancesAndDirections",
+                    "pages": [
+                      "api-reference/geocode/distances-and-directions-interactive-directions",
+                      "api-reference/geocode/distances-and-directions-interactive-distance"
+                    ]
+                  },
+                  {
+                    "group": "Geocoding",
+                    "pages": [
+                      "api-reference/geocode/international-geocode",
+                      "api-reference/geocode/international-positiontocountry",
+                      "api-reference/geocode/international-retrievenearestplaces",
+                      "api-reference/geocode/international-reversegeocode",
+                      "api-reference/geocode/uk-find",
+                      "api-reference/geocode/uk-geocode",
+                      "api-reference/geocode/uk-retrieve",
+                      "api-reference/geocode/uk-retrievenearestplaces",
+                      "api-reference/geocode/uk-reversegeocode"
+                    ]
+                  },
+                  {
+                    "group": "GovernmentData",
+                    "pages": [
+                      "api-reference/geocode/governmentdata-postzon-retrievebycoordinates",
+                      "api-reference/geocode/governmentdata-postzon-retrievebypostcode",
+                      "api-reference/geocode/governmentdata-postzon-retrievebypostcodeorplace"
+                    ]
+                  },
+                  {
+                    "group": "Store Finder",
+                    "pages": [
                   "api-reference/geocode/storefinder-interactive-findplacenames",
                   "api-reference/geocode/storefinder-interactive-retrievecoordinates"
+                    ]
+                  }
                 ]
               }
             ]

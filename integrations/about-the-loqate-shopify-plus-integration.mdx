@@ -1,0 +1,154 @@
+---
+title: About the Shopify Plus Integration
+sidebarTitle: "About the Shopify Plus Integration"
+description: "See how the Loqate Shopify Plus Integration looks in practice"
+---
+
+In this guide we will explain what the Loqate Shopify Plus Integration does and how it works in practice. If you want to skip straight to the installation steps, you can find those here:  
+
+<Card title="Integration guide" horizontal href="/integrations/shopify-plus">
+Check out the Loqate Shopify Plus Integration Guide
+</Card>
+
+The Loqate Shopify Plus Integration, downloadable via the Shopify App Store, allows you to quickly and easily add Loqate's address validation services to the checkout page of your Shopify Plus site. With some or all of these services enabled you can provide your customers with type-ahead lookup functionality for address fields (reducing both input times and the likelihood of errors), verification for manually-entered addresses, and email address validation.
+
+We've created this integration to take advantage of Shopify's new Checkout Extensibility functionality, which means you can leverage Shopify's latest technology as part of the Loqate app.
+
+Installing and setting up this Shopify Plus app is a straightforward process, and in this guide we will take you through the handful of quick steps required to get up and running. You don't need any in-depth technical knowledge in order to install this app, just familiarity with Shopify Plus.
+
+## Available services
+The Loqate Shopify Plus Integration includes three Loqate services:
+
+- **Address Capture**, which provides a type-ahead solution for address input
+- **Address Verify**, which ensures the accuracy of manually-entered addresses
+- **Email Validation**, which ensures the accuracy of customer email addresses
+
+Read on to find out more about what each service does, and how they complement each other. 
+
+<Note>NOTE: these services are designed to work together, but each one can be enabled/disabled individually. Address Capture is enabled by default, but while it's not recommended it is possible to disable Address Capture and use just Address Verify and/or Email Validation. See the 'Use without Address Capture' section below for more details.</Note>
+
+<Tabs>
+  <Tab title="Address Capture">
+    This is active by default once you've installed and configured the app, adding type-ahead address lookup functionality to the Address field on your checkout form and allowing customers to start typing in their address and then select the relevant one from a list of suggested addresses.
+    
+    Address Capture is available in both the Delivery address and Billing address sections.
+  </Tab>
+  <Tab title="Address Verify">
+    If enabled, Address Verify adds an extra layer of verification by checking addresses against our reference data using a process of correction, standardisation, formatting, enhancement and verification. If appropriate, it can then offer an alternative which the customer can either agree to use, or dismiss in favour of their original entry.
+    
+    Address Verify is available on the Thank You page, post-checkout, and can make changes to customers' delivery addresses (it doesn't affect the billing address).
+    
+    <Warning>NOTE: Address Verify can also be added to the Delivery address section of the checkout page, but this option is now deprecated and will be removed in time. We strongly recommend that you don't use Address Verify to the checkout page, and only use the post-checkout option, as this allows you to use Address Verify alongside functions such as wallets (for Apple/Google Pay) and logged-in users. If you already have Address Verify enabled for the checkout page, we recommend you disable this and enable the post-checkout option instead.</Warning>
+  </Tab>
+  <Tab title="Email Validation">
+    This is an optional feature which, if enabled, allows you to validate customer email addresses as they're being entered. If a customer enters an invalid email address*, they will be notified that the email address can't be validated and won't be able to proceed through the checkout form until they enter a valid email address.
+    
+    Otherwise, customers who enter valid email addresses will not have their experience interrupted or visually altered in any way.
+    
+    *See the 'Response fields' section of the [Email Validation API documentation](/api-reference/email-validation/email-validation-api-landing) for details of why an email address might be invalid.
+  </Tab>
+</Tabs>
+
+---
+
+<Card title="Integration guide" horizontal href="/integrations/shopify-plus">
+If you're looking for installation instructions, check out the Loqate Shopify Plus Integration Guide
+</Card>
+
+## In use 
+
+With the Loqate Shopify app  installed and configured, your customers can use Loqate services when inputting their details. 
+
+### Video overview
+
+Here's an overview of what this looks like in practice, using an example checkout page:
+
+<video controls className="w-full aspect-video" src="https://loqate-gbg.wistia.com/medias/o7kq9sb7x1"></video>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jKsEiiuqxac?si=1-X2VmPmFFXhPUJH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+### Example screenshots
+
+We've also put together some screenshots of how that might look on an example checkout page, to give you a sense of what to expect.
+
+<Tabs>
+  <Tab title="Address Capture in use">
+    Here's what it looks like during an address lookup and after an address has been selected in the Delivery address section:
+    
+    ![Address Capture Checkout](/images/shopify-address-capture-checkout.png)
+
+    And here's what it looks like during an address lookup and after an address has been selected in the Billing address section:
+    
+    ![Address Capture Billing](/images/shopify-address-capture-billing.png)
+
+    Note: the countries listed in the **Country/Region** dropdown list are tied directly to what you've set in the 'Shipping and delivery' section of your Shopify store settings. Therefore, if you only ship to certain countries, only those countries will appear in the dropdown. If a customer enters an address outside of those countries, Address Capture will not be able to return suggestions in the country they're looking for and Address Verify will not recognise the inputted address (see the Address Verify section below).
+
+    ![Country Dropdown](/images/shopify-country-dropdown-1.png)
+
+  </Tab>
+  <Tab title="Address Verify in use">
+    If you have enabled Address Verify, this functionality will trigger on the Thank You page after a customer has confirmed an order.
+    
+    Immediately after the Thank You page loads, a message will appear saying "Please wait while we verify your address...":
+    
+    ![Verify Thankyou](/images/shopify-verify-thankyou-0.png)
+
+    This message will adjust depending on the results that Address Verify can return, with three main possibilities:
+    
+    - No changes required
+    - Alternative address found]
+    - Address not validated
+    
+    ### No changes required
+    
+    If the customer's address is successfully verified with no changes required, the Address Verify message will change to "Your shipping address has been verified!":
+    
+    ![Verify Thankyou](/images/shopify-verify-thankyou-01.png)
+
+    ### Alternative address found
+    
+    If, however, Address Verify finds an alternative address to suggest, the message will instead change to say "We've found an alternate address", and give the customer the option of either applying or declining the proposed changes:
+    
+    ![Verify Thankyou](/images/shopify-verify-thankyou-1.png)
+
+    If the customer clicks **Apply changes**, the message will change to say "Your shipping address has been updated":
+    
+    ![Verify Thankyou](/images/shopify-verify-thankyou-2.png)
+
+    **NOTE:** customers will not see the updated address reflected on the Thank You page, however if you check the Orders section of your Shopify Plus account and find the transaction in question, you'll see that the shipping address has been updated.
+    
+    For example, here you can see that the billing address remains as it was originally inputted, but the shipping address has been corrected by Address Verify:
+    
+    ![Verify Thankyou](/images/shopify-verify-thankyou-4.png)
+
+    You can also see evidence of the update in the order's timeline:
+    
+    ![Verify Thankyou](/images/shopify-verify-thankyou-3.png)
+
+    Not all customers will choose to use the alternative addresses offered by Address Verify, however. If a customer chooses to ignore the suggestion, they will instead see a message which says "Your shipping address was not updated":
+    
+    ![Verify Thankyou](/images/shopify-verify-thankyou-5.png)
+
+    ### Address not validated
+    
+    Lastly, if an address is sufficiently low quality that Address Verify can't validate it, the customer will instead see a message reading "Your shipping address could not be validated, your order will still be processed."
+
+    ![Verify Thankyou](/images/shopify-verify-thankyou-6.png)
+
+  </Tab>
+  <Tab title="Email Validation in use">
+    If you have enabled Email Validation, this functionality will trigger when a customer enters an invalid email address. Here's what that will look like:
+    
+    ![Email Validation Usage](/images/shopify-email-validation-usage-august-2024.png)
+
+    When a customer enters a valid email address, this notification will disappear and they will be able to proceed through the checkout.
+  </Tab>
+</Tabs>
+
+---
+
+For the full details of how to install and set up the Loqate Shopify Plus Integration, see our setup guide:
+
+<Card title="Integration guide" horizontal href="/integrations/shopify-plus">
+Check out the Loqate Shopify Plus Integration Guide
+</Card>

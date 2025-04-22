@@ -1,0 +1,61 @@
+---
+title: Store Finder
+description: "Our Store Finder service gives you the tools you need to drive footfall and optimise your returns process."
+sidebarTitle: "Overview"
+icon: 
+---
+
+A Store Finder tool works by allowing you to combine precise location information for your organisation's stores and a customer's location, then determine the relationship between the two sets of information, and present the results in a visual fashion. 
+
+<Tabs>
+  <Tab title="Overview">
+Store Finder consists of eight API endpoints which you can use in conjunction to build the service that's right for your business needs:
+
+- **Four Location Management APIs:**
+  - **Create List:** creates a list of locations that can be used with the Distance Finder endpoint.
+  - **Delete List or Point:** deletes a list of locations or a particular location within that list.
+  - **Update List or Point:** updates a list of locations or a particular location within that list.
+  - **Get List:** gets a list of locations to see the details of that list and the locations within it. 
+- **Geocoding Typeahead:** uses a text search to suggest Town, City, State and Postcode/ZIP Codes. When one of these is selected by the end user, a subsequent request (using the associated address ID) can be made to retrieve the latitude and longitude for the location.
+- **Global Geocoding:** takes an input of one or more address strings and returns latitude and longitudes for the given locations.
+- **Global Distance Finder:** takes an input of an origin location and one or more destination locations, and returns road-based distance and travel times for each of them.
+- **Mapping:** takes an input of your Loqate key and returns a Signed URL that will allow you to visually represent the output from the Distance Finder API on a map.
+</Tab>
+<Tab title="Setup docs">
+For details of how to integrate, check out our Store Finder setup articles:
+
+<CardGroup cols={2}>
+<Card title="How Does a Store Finder Work?" icon="building-columns" href="/our-services/bank_validation/setup/setup" horizontal>
+</Card>
+<Card title="Creating and Managing Location Lists" icon="building-columns" href="/our-services/bank_validation/setup/setup" horizontal>
+</Card>
+<Card title="How To Implement a Store Finder" icon="building-columns" href="/our-services/bank_validation/setup/setup" horizontal>
+</Card>
+<Card title="Setting Up Store Finder Keys" icon="building-columns" href="/our-services/bank_validation/setup/setup" horizontal>
+</Card>
+</CardGroup>
+</Tab>
+<Tab title="APIs">
+Check out the API references for each of the endpoints below:
+
+<CardGroup cols={2}>
+  <Card title="Create List" horizontal href="/api-reference/store-finder/location-management-create-list" icon="code">
+  </Card>
+  <Card title="Delete List or Point" horizontal href="/api-reference/store-finder/location-management-delete-list-or-point" icon="code">
+  </Card>
+  <Card title="Update List or Point" horizontal href="/api-reference/store-finder/location-management-update-list-or-point" icon="code">
+  </Card>
+  <Card title="Get List" horizontal href="/api-reference/bank-validation/store-finder/location-management-get-list" icon="code">
+  </Card>
+  <Card title="Geocoding Typeahead" horizontal href="/api-reference/store-finder/geocoding-typeahead" icon="code">
+  </Card>
+  <Card title="Global Geocoding" horizontal href="/api-reference/store-finder/global-geocoding" icon="code">
+  </Card>
+  <Card title="Global Distance Finder" horizontal href="/api-reference/store-finder/global-distance-finder" icon="code">
+  </Card>
+  <Card title="Mapping" horizontal href="/api-reference/store-finder/mapping" icon="code">
+  </Card>
+</CardGroup>
+</Tab>
+</Tabs>
+---
