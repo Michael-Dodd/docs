@@ -138,6 +138,7 @@
               ]
             },
               "integrations/microsoft-dynamics-365",
+              "integrations/salesforce-crm",
               {
                 "group": "Shopify Plus",
                 "pages": [
